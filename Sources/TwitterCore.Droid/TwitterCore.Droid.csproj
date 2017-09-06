@@ -38,17 +38,17 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
-    <Reference Include="GoogleGson">
-      <HintPath>..\..\Samples\FormsSample\packages\GoogleGson.2.6.2.0\lib\MonoAndroid\GoogleGson.dll</HintPath>
-    </Reference>
-    <Reference Include="Square.Retrofit2">
-      <HintPath>..\..\Samples\FormsSample\packages\Square.Retrofit2.2.1.0\lib\MonoAndroid\Square.Retrofit2.dll</HintPath>
-    </Reference>
     <Reference Include="Square.OkIO">
-      <HintPath>..\..\Samples\FormsSample\packages\Square.OkIO.1.11.0\lib\MonoAndroid\Square.OkIO.dll</HintPath>
+      <HintPath>..\packages\Square.OkIO.1.6.0.0\lib\MonoAndroid\Square.OkIO.dll</HintPath>
     </Reference>
-    <Reference Include="Square.OkHttp3">
-      <HintPath>..\..\Samples\FormsSample\packages\Square.OkHttp3.3.5.0\lib\MonoAndroid\Square.OkHttp3.dll</HintPath>
+    <Reference Include="Square.OkHttp">
+      <HintPath>..\packages\Square.OkHttp.2.7.5.0\lib\MonoAndroid\Square.OkHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleGson">
+      <HintPath>..\packages\GoogleGson.2.6.1.0\lib\MonoAndroid\GoogleGson.dll</HintPath>
+    </Reference>
+    <Reference Include="Square.Retrofit">
+      <HintPath>..\packages\Square.Retrofit.1.9.0.0\lib\MonoAndroid\Square.Retrofit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

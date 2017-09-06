@@ -98,11 +98,11 @@ namespace CrashlyticsKit
             return this;
         }
 
-		public ICrashlytics Log(string msg)
-		{
-			Bindings.CrashlyticsKit.Crashlytics.Log(msg);
-			return this;
-		}
+        public ICrashlytics Log(string msg)
+        {
+            Bindings.CrashlyticsKit.Crashlytics.Log(msg);
+            return this;
+        }
 
 
         internal static Throwable ToThrowable(Exception exception)
@@ -152,7 +152,7 @@ namespace CrashlyticsKit
     }
 
     public static class Initializer
-    {        
+    {
         private static readonly object InitializeLock = new object();
         private static Thread.IUncaughtExceptionHandler _defaultExceptionHandler;
         private static Thread.IUncaughtExceptionHandler _uncaughtExceptionHandler;
@@ -160,22 +160,12 @@ namespace CrashlyticsKit
 
         private static void UncaughtException(object exeptionObject)
         {
-            var exception = exeptionObject as Exception;
-            if (exception == null)
-                return;
-
-            Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception stack trace", exception.StackTrace ?? string.Empty);
-            Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception message", exception.Message);
-            Bindings.CrashlyticsKit.Crashlytics.SetString("fatal exception", exception.GetType().FullName);
-
-            var throwable = Crashlytics.ToThrowable(exception);
-
-            _uncaughtExceptionHandler.UncaughtException(Thread.CurrentThread(), throwable);
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
-            Environment.Exit(10);
+            if (exeptionObject is Exception exception)
+            {
+                Crashlytics.Instance.RecordException(exception);
+            }
         }
 
-        
         public static void Initialize(this ICrashlytics crashlytics)
         {
             if (_initialized) return;

@@ -29,10 +29,10 @@ namespace FabricSdk
         internal void Initialize()
         {
             BeforeInitialize?.Invoke(this, new EventArgs());
-			var nativeKits = new List<NSObject>();
-			foreach (var kit in Kits)
-				nativeKits.Add(kit.ToNative());
-			Bindings.FabricSdk.Fabric.With(nativeKits.ToArray());
+            var nativeKits = new List<NSObject>();
+            foreach (var kit in Kits)
+                nativeKits.Add(kit.ToNative());
+            Bindings.FabricSdk.Fabric.With(nativeKits.ToArray());
             AfterInitialize?.Invoke(this, new EventArgs());
         }
     }
