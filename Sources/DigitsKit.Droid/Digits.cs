@@ -14,7 +14,7 @@ namespace DigitsKit
 
         public static IDigits Instance => LazyInstance.Value;
 
-		private Digits() : base(new Bindings.DigitsKit.Digits.Builder().Build())
+        private Digits() : base(new Bindings.DigitsKit.Digits.Builder().Build())
         {
         }
 
@@ -153,7 +153,7 @@ namespace DigitsKit
             if (_initialized) return;
             lock (InitializeLock)
             {
-                if (_initialized) return; 
+                if (_initialized) return;
 
                 var authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
                 var core = new TwitterCore(authConfig);
@@ -161,7 +161,7 @@ namespace DigitsKit
                 Fabric.Instance.Kits.Add(new Kit(core));
                 Fabric.Instance.Kits.Add(digits);
 
-                _initialized = true; 
+                _initialized = true;
             }
         }
     }

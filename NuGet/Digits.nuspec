@@ -25,25 +25,25 @@
   </metadata>
   <files>
     <!-- PCL -->
-    <file src="Sources/DigitsKit/bin/Release/DigitsKit.dll"
+    <file src="../Sources/DigitsKit/bin/Release/DigitsKit.dll"
           target="lib/portable-net45+win8+wpa81+wp8/DigitsKit.dll" />
-    <file src="Sources/DigitsKit.Pcl/bin/Release/DigitsKit.Platform.dll"
+    <file src="../Sources/DigitsKit.Pcl/bin/Release/DigitsKit.Platform.dll"
           target="lib/portable-net45+win8+wpa81+wp8/DigitsKit.Platform.dll" />
 
     <!-- Xamarin.Android -->
-    <file src="Sources/TwitterCore.Droid/bin/Release/TwitterCore.Platform.dll"
+    <file src="../Sources/TwitterCore.Droid/bin/Release/TwitterCore.Platform.dll"
           target="lib/MonoAndroid10/TwitterCore.Platform.dll" />
-    <file src="Sources/DigitsKit/bin/Release/DigitsKit.dll"
+    <file src="../Sources/DigitsKit/bin/Release/DigitsKit.dll"
           target="lib/MonoAndroid10/DigitsKit.dll" />
-    <file src="Sources/DigitsKit.Droid/bin/Release/DigitsKit.Platform.dll"
+    <file src="../Sources/DigitsKit.Droid/bin/Release/DigitsKit.Platform.dll"
           target="lib/MonoAndroid10/DigitsKit.Platform.dll" />
 
     <!-- Xamarin.iOS -->
-    <file src="Sources/TwitterCore.Touch/bin/Release/TwitterCore.Platform.dll"
+    <file src="../Sources/TwitterCore.Touch/bin/Release/TwitterCore.Platform.dll"
           target="lib/Xamarin.iOS10/TwitterCore.Platform.dll" />
-    <file src="Sources/DigitsKit/bin/Release/DigitsKit.dll"
+    <file src="../Sources/DigitsKit/bin/Release/DigitsKit.dll"
           target="lib/Xamarin.iOS10/DigitsKit.dll" />
-    <file src="Sources/DigitsKit.Touch/bin/Release/DigitsKit.Platform.dll"
+    <file src="../Sources/DigitsKit.Touch/bin/Release/DigitsKit.Platform.dll"
           target="lib/Xamarin.iOS10/DigitsKit.Platform.dll" />
   </files>
 </package>

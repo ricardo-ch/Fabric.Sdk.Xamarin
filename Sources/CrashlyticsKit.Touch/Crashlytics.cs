@@ -19,12 +19,12 @@ namespace CrashlyticsKit
         private static readonly Lazy<Crashlytics> LazyInstance = new Lazy<Crashlytics>(() => new Crashlytics());
 
         private Crashlytics() : base(Bindings.CrashlyticsKit.Crashlytics.SharedInstance)
-        {            
+        {
         }
 
         public static ICrashlytics Instance => LazyInstance.Value;
 
-        public string Version => Bindings.CrashlyticsKit.Crashlytics.SharedInstance.Version;       
+        public string Version => Bindings.CrashlyticsKit.Crashlytics.SharedInstance.Version;
 
         public void Crash()
         {
@@ -91,11 +91,11 @@ namespace CrashlyticsKit
             return this;
         }
 
-		public ICrashlytics Log(string msg)
-		{
-			CLSLog(msg);
-			return this;
-		}
+        public ICrashlytics Log(string msg)
+        {
+            CLSLog(msg);
+            return this;
+        }
 
         public void RecordException(Exception exception)
         {
@@ -132,54 +132,54 @@ namespace CrashlyticsKit
             Bindings.CrashlyticsKit.Crashlytics.SharedInstance.RecordCustomExceptionName(exception.GetType().Name, exception.Message, stackFrames.ToArray());
         }
 
-		// extern void CLSLog (NSString * format, ...);
-		[DllImport("__Internal", EntryPoint = "CLSLog")]
-		//[Verify (PlatformInvoke)]
-		internal static extern void __CLSLog(IntPtr format, string arg0);
+        // extern void CLSLog (NSString * format, ...);
+        [DllImport("__Internal", EntryPoint = "CLSLog")]
+        //[Verify (PlatformInvoke)]
+        internal static extern void __CLSLog(IntPtr format, string arg0);
 
-		// extern void CLSLog (NSString * format, ...);
-		[DllImport("__Internal", EntryPoint = "CLSLog")]
-		//[Verify (PlatformInvoke)]
-		internal static extern void __CLSLog_arm64(IntPtr format, IntPtr dummy1, IntPtr dummy2, IntPtr dummy3, IntPtr dummy4, IntPtr dummy5, IntPtr dummy6, string arg0);
+        // extern void CLSLog (NSString * format, ...);
+        [DllImport("__Internal", EntryPoint = "CLSLog")]
+        //[Verify (PlatformInvoke)]
+        internal static extern void __CLSLog_arm64(IntPtr format, IntPtr dummy1, IntPtr dummy2, IntPtr dummy3, IntPtr dummy4, IntPtr dummy5, IntPtr dummy6, string arg0);
 
-		// extern void CLSLogv (NSString * format, va_list ap);
-		[DllImport("__Internal")]
-		//[Verify (PlatformInvoke)]
-		internal static extern unsafe void CLSLogv(IntPtr format, sbyte* ap);
+        // extern void CLSLogv (NSString * format, va_list ap);
+        [DllImport("__Internal")]
+        //[Verify (PlatformInvoke)]
+        internal static extern unsafe void CLSLogv(IntPtr format, sbyte* ap);
 
-		// extern void CLSNSLog (NSString * format, ...);
-		[DllImport("__Internal", EntryPoint = "CLSNSLog")]
-		//[Verify (PlatformInvoke)]
-		internal static extern void __CLSNSLog(IntPtr format, string arg0);
+        // extern void CLSNSLog (NSString * format, ...);
+        [DllImport("__Internal", EntryPoint = "CLSNSLog")]
+        //[Verify (PlatformInvoke)]
+        internal static extern void __CLSNSLog(IntPtr format, string arg0);
 
-		// extern void CLSNSLog (NSString * format, ...);
-		[DllImport("__Internal", EntryPoint = "CLSNSLog")]
-		//[Verify (PlatformInvoke)]
-		internal static extern void __CLSNSLog_arm64(IntPtr format, IntPtr dummy1, IntPtr dummy2, IntPtr dummy3, IntPtr dummy4, IntPtr dummy5, IntPtr dummy6, string arg0);
+        // extern void CLSNSLog (NSString * format, ...);
+        [DllImport("__Internal", EntryPoint = "CLSNSLog")]
+        //[Verify (PlatformInvoke)]
+        internal static extern void __CLSNSLog_arm64(IntPtr format, IntPtr dummy1, IntPtr dummy2, IntPtr dummy3, IntPtr dummy4, IntPtr dummy5, IntPtr dummy6, string arg0);
 
-		// extern void CLSNSLogv (NSString * format, va_list ap);
-		[DllImport("__Internal")]
-		//[Verify (PlatformInvoke)]
-		internal static extern unsafe void CLSNSLogv(IntPtr format, sbyte* ap);
+        // extern void CLSNSLogv (NSString * format, va_list ap);
+        [DllImport("__Internal")]
+        //[Verify (PlatformInvoke)]
+        internal static extern unsafe void CLSNSLogv(IntPtr format, sbyte* ap);
 
-		public void CLSLog(string format, params object[] arg)
-		{
-			using (var nsFormat = new NSString(string.Format(format, arg)))
-				if (Runtime.Arch == Arch.DEVICE && IntPtr.Size == 8)
-					__CLSLog_arm64(nsFormat.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, "");
-				else
-					__CLSLog(nsFormat.Handle, "");
-		}
+        public void CLSLog(string format, params object[] arg)
+        {
+            using (var nsFormat = new NSString(string.Format(format, arg)))
+                if (Runtime.Arch == Arch.DEVICE && IntPtr.Size == 8)
+                    __CLSLog_arm64(nsFormat.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, "");
+                else
+                    __CLSLog(nsFormat.Handle, "");
+        }
 
-		public void CLSNSLog(string format, params object[] arg)
-		{
-			using (var nsFormat = new NSString(string.Format(format, arg)))
-				if (Runtime.Arch == Arch.DEVICE && IntPtr.Size == 8)
-					__CLSNSLog_arm64(nsFormat.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, "");
-				else
-					__CLSNSLog(nsFormat.Handle, "");
-		}
-	}
+        public void CLSNSLog(string format, params object[] arg)
+        {
+            using (var nsFormat = new NSString(string.Format(format, arg)))
+                if (Runtime.Arch == Arch.DEVICE && IntPtr.Size == 8)
+                    __CLSNSLog_arm64(nsFormat.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, "");
+                else
+                    __CLSNSLog(nsFormat.Handle, "");
+        }
+    }
 
     public static class Initializer
     {
@@ -188,13 +188,10 @@ namespace CrashlyticsKit
 
         public static void RecordManagedException(object exceptionObject)
         {
-            var exception = exceptionObject as Exception;
-            if (exception == null)
-                return;
-            
-            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.StackTrace ?? string.Empty), "managed exception stack trace");
-            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.Message), "managed exception message");
-            Bindings.CrashlyticsKit.Crashlytics.SharedInstance.SetObjectValue(new NSString(exception.GetType().FullName), "managed exception");
+            if (exceptionObject is Exception exception)
+            {
+                Bindings.CrashlyticsKit.Crashlytics.SharedInstance.RecordError(exception.ToNativeError());
+            }
         }
 
         public static void Initialize(this ICrashlytics crashlytics)
@@ -214,6 +211,13 @@ namespace CrashlyticsKit
         {
             AppDomain.CurrentDomain.UnhandledException += (s, a) => RecordManagedException(a.ExceptionObject);
             TaskScheduler.UnobservedTaskException += (s, a) => RecordManagedException(a.Exception);
+        }
+
+        static NSError ToNativeError(this Exception ex)
+        {
+            NSDictionary userInfo = NSDictionary.FromObjectsAndKeys(new object[] { ex.Message, ex.StackTrace, ex.GetType().FullName, ex.Source }, new string[] { "Message", "StackTrace", "Type", "Source" });
+
+            return NSError.FromDomain(new NSString(ex.GetType().Name), ex.HResult, userInfo);
         }
     }
 }

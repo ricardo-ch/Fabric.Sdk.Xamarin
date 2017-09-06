@@ -18,21 +18,21 @@
   </metadata>
   <files>
     <!-- PCL -->
-    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
+    <file src="../Sources/AnswersKit/bin/Release/AnswersKit.dll"
           target="lib/portable-net45+win8+wpa81+wp8/AnswersKit.dll" />
-    <file src="Sources/AnswersKit.Pcl/bin/Release/AnswersKit.Platform.dll"
+    <file src="../Sources/AnswersKit.Pcl/bin/Release/AnswersKit.Platform.dll"
           target="lib/portable-net45+win8+wpa81+wp8/AnswersKit.Platform.dll" />
 
     <!-- Xamarin.Android -->
-    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
+    <file src="../Sources/AnswersKit/bin/Release/AnswersKit.dll"
           target="lib/MonoAndroid10/AnswersKit.dll" />
-    <file src="Sources/AnswersKit.Droid/bin/Release/AnswersKit.Platform.dll"
+    <file src="../Sources/AnswersKit.Droid/bin/Release/AnswersKit.Platform.dll"
           target="lib/MonoAndroid10/AnswersKit.Platform.dll" />
 
     <!-- Xamarin.iOS -->
-    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
+    <file src="../Sources/AnswersKit/bin/Release/AnswersKit.dll"
           target="lib/Xamarin.iOS10/AnswersKit.dll" />
-    <file src="Sources/AnswersKit.Touch/bin/Release/AnswersKit.Platform.dll"
+    <file src="../Sources/AnswersKit.Touch/bin/Release/AnswersKit.Platform.dll"
           target="lib/Xamarin.iOS10/AnswersKit.Platform.dll" />
   </files>
 </package>
