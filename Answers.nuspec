@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Ricardo.Answers</id>
+    <version>1.2</version>
+    <title>Ricardo.Answers</title>
+    <authors>Jean-Marie Gueirard</authors>
+    <projectUrl>https://github.com/ricardo-ch/Fabric.Sdk.Xamarin</projectUrl>
+    <licenseUrl>https://answers.io/terms</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This is a fork from Michel Moreira package (https://www.nuget.org/packages/Fabric/)</description>
+    <summary>This is a fork from Michel Moreira package (https://www.nuget.org/packages/Fabric/)</summary>
+    <tags>xamarin, xamarin.forms, android, ios, windows phone, crashlytics, fabric, twitter, answers</tags>
+    <dependencies>
+      <dependency id="Fabric" version="1.2" />
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- PCL -->
+    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
+          target="lib/portable-net45+win8+wpa81+wp8/AnswersKit.dll" />
+    <file src="Sources/AnswersKit.Pcl/bin/Release/AnswersKit.Platform.dll"
+          target="lib/portable-net45+win8+wpa81+wp8/AnswersKit.Platform.dll" />
+
+    <!-- Xamarin.Android -->
+    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
+          target="lib/MonoAndroid10/AnswersKit.dll" />
+    <file src="Sources/AnswersKit.Droid/bin/Release/AnswersKit.Platform.dll"
+          target="lib/MonoAndroid10/AnswersKit.Platform.dll" />
+
+    <!-- Xamarin.iOS -->
+    <file src="Sources/AnswersKit/bin/Release/AnswersKit.dll"
+          target="lib/Xamarin.iOS10/AnswersKit.dll" />
+    <file src="Sources/AnswersKit.Touch/bin/Release/AnswersKit.Platform.dll"
+          target="lib/Xamarin.iOS10/AnswersKit.Platform.dll" />
+  </files>
+</package>
